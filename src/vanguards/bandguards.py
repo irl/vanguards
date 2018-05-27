@@ -173,7 +173,7 @@ class BandwidthStats:
                           CIRC_MAX_DROPPED_BYTES_PERCENT,
                           "Total: "+str(circ.read_bytes)+\
                           ", dropped: "+str(circ.dropped_read_bytes()))
-      control.try_close_circuit(self.controller, circ.circ_id)
+      #control.try_close_circuit(self.controller, circ.circ_id)
     if CIRC_MAX_MEGABYTES > 0 and \
        circ.total_bytes() > CIRC_MAX_MEGABYTES*_BYTES_PER_MB:
       self.limit_exceeded("NOTICE", "CIRC_MAX_MEGABYTES",
