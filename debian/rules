@@ -1,0 +1,11 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@ --with python3 --buildsystem=pybuild
+#	dh $@ --with pypy --buildsystem=pybuild
+
+override_dh_auto_install:
+	dh_auto_install
+	# See https://github.com/mikeperry-tor/vanguards/issues/14
+	rm $(CURDIR)/.pybuild/cpython3_3.*/build/valid
+	rm $(CURDIR)/.pybuild/cpython3_3.*/build/vanguards.state
